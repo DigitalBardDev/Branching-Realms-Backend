@@ -14,7 +14,7 @@ Managing hundreds of interconnected data nodes required programmatic QA validati
 * **Libraries:** NLTK (Natural Language Toolkit), textstat, Graphviz, Tkinter
 * **Methodology:** Depth First Search (DFS) algorithms, Automated QA validation, JSON data structuring
 
-* ## Automated Output Example
+## Automated Output Example
 Below is an example of a visual relational node graph generated entirely by the Python automation script from raw story text:
 
 ![Relational Node Flowchart](Ashes_of_the_Pact_outline__graph.png)
