@@ -1,25 +1,15 @@
-# Branching Realms - Backend Architecture & Data Pipeline
+# Branching Realms - Data Validation & Backend Pipeline
 
 ## Overview
-Branching Realms is a released, production-level mobile interactive fiction(CYOA) platform. This repository details the backend infrastructure and the custom Python automation scripts engineered to manage the application's data pipeline.
+Branching Realms is a released, production-level mobile interactive fiction (CYOA) platform. This repository details the custom Python automation pipeline engineered to parse, validate, and analyze the application's complex non-linear data structures prior to database ingestion.
 
-## Backend Infrastructure
-The application relies on a cloud-based NoSQL architecture to handle dynamic user paths and data storage:
-* **Firebase Firestore:** Utilized as the primary database to store, retrieve, and manage complex, branching story nodes and state data in real-time.
-* **Firebase Authentication:** Integrated for secure user login and session management.
-* **Firebase Analytics:** Implemented to track user retention, path selection, and application performance metrics.
+## Python Automation & Validation Scripts
+Managing hundreds of interconnected data nodes required programmatic QA validation. I engineered two Python utility applications to automate the data pipeline:
 
-## Python Automation Scripts
-To eliminate the bottleneck of manually entering hundreds of text nodes into the Firestore database, I built two distinct Python utility programs to automate the deployment pipeline:
-
-1. **The Data Parser:** A Python script designed to programmatically scan raw writing assets, format the text, and structure it into a clean JSON/dictionary format ready for database insertion.
-2. **The Batch Uploader:** A Python-based automation tool utilizing the Firebase Admin SDK to connect to the live Firestore database and execute batch uploads, instantly populating the application's live environment with zero manual data entry.
+1. **Relational Graph Mapper (Path Splitter):** A script that utilizes Regular Expressions and a Depth First Search (DFS) algorithm to crawl raw text documents. It maps the relational logic of user choices, identifies all possible linear paths through the data, and programmatically generates visual node flowcharts using the Graphviz library.
+2. **Automated QA & NLP Analyzer (Story Converter):** A data pipeline tool that converts raw text into structured JSON payloads. It utilizes the Natural Language Toolkit (NLTK) to analyze text complexity and automatically tag content. Crucially, the script executes automated QA validation to detect broken relational links, isolate "unreachable" data nodes, and verify data parity between the raw text and the generated JSON schema.
 
 ## Core Technologies
-* **Languages:** Python, Kotlin (Front-end context)
-* **Databases/APIs:** Firebase, Cloud Firestore, NoSQL Data Structures
-* **Methodology:** Automated Data Pipelines, API Integration
-
----
-
-*Note: The front-end source code and proprietary story data for the Branching Realms application are withheld to protect commercial intellectual property. The Python utility scripts are highlighted here to demonstrate backend automation capabilities.*
+* **Languages:** Python
+* **Libraries:** NLTK (Natural Language Toolkit), textstat, Graphviz, Tkinter
+* **Methodology:** Depth First Search (DFS) algorithms, Automated QA validation, JSON data structuring
