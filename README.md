@@ -69,4 +69,6 @@ The tools operate as local desktop utilities and do not require external network
   python StoryConverter/Story_Converter.py
   python StoryStraightener/LinearMaker.py
   ```
+### Example Output
+<img width="2020" height="4500" alt="Ashes_of_the_Pact_outline__graph" src="https://github.com/user-attachments/assets/acf52227-2798-4281-ba97-9089a391b314" />
 
